@@ -1,11 +1,5 @@
 import sqlite3
 
-lang_list = [
-    ("Fortran", "pass1", 1957),
-    ("Python", "123" ,1991),
-    ("Go", "Pa1",2009),
-]
-
 def _con():
     con = sqlite3.connect("users.db")
     cur = con.cursor()
