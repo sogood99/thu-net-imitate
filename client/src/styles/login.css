@@ -1,0 +1,270 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: serif;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e6e6e6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wifi {
+  position: absolute;
+  top: 0;
+  left: 15%;
+}
+
+.thu-text-container {
+  position: absolute;
+  top: 0;
+  left: 20%;
+}
+
+.thu-text-container .text1 {
+  color: #c54614;
+  font-size: 32px;
+}
+
+.thu-text-container .text2 {
+  color: #db4f18;
+  font-size: 32px;
+}
+
+.thu-text-container .text3 {
+  font-size: 20px;
+  font-weight: 50;
+  color: rgb(105, 105, 105);
+}
+
+.qr-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.qr-container figcaption.qr {
+  transform: translateX(-10%);
+  font-size: 12px;
+}
+
+.at-thu {
+  position: absolute;
+  top: 2%;
+  left: 65%;
+}
+
+.background-box {
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  width: 70%;
+  height: 40%;
+  max-width: 750px;
+  max-height: 150px;
+  background-color: #f15213;
+}
+
+.background-box .welcome-text {
+  position: absolute;
+  left: 5%;
+  top: 15%;
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: flex-end;
+}
+
+.background-box .welcome-text h2 {
+  color: white;
+  font-size: 80px;
+  margin-right: 10px;
+}
+
+.background-box .welcome-text h3 {
+  color: white;
+  font-weight: 200;
+  font-size: 50px;
+}
+
+.background-box .notification {
+  position: absolute;
+  top: 100%;
+  left: -2%;
+  width: 47%;
+  height: 100%;
+  background-color: #e6562e;
+}
+
+.background-box .front-box {
+  position: absolute;
+  top: 20%;
+  left: 45%;
+  width: 60%;
+  height: 210%;
+  background-color: rgb(247, 247, 247);
+  box-shadow: 0 0 2px rgb(105, 105, 105);
+}
+
+.background-box .front-box .grid {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 4.5fr;
+  grid-row-gap: 20%;
+  top: 10%;
+  left: 7%;
+  width: 84%;
+  height: 35%;
+}
+
+.background-box .front-box .grid .connect {
+  position: absolute;
+  top: 120%;
+  width: 100%;
+  height: 42%;
+  background-color: rgb(146, 212, 46);
+  border: 1px solid;
+  border-color: grey;
+}
+
+.background-box .front-box .grid .connect:hover {
+  background-color: rgb(137, 196, 50);
+  border-color: grey;
+}
+
+.background-box .grid .user-input {
+  font-size: 20px;
+}
+
+.background-box .grid .pass-input {
+  font-size: 20px;
+}
+
+.fold-notification-triangle-container {
+  position: absolute;
+  width: 4.5%;
+  height: 10%;
+  bottom: 100%;
+  left: 0%;
+  overflow: hidden;
+  transform: scaleX(-1);
+}
+
+.fold-notification-triangle {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: 0%;
+  left: -40%;
+  background-color: rgb(133, 49, 0);
+  transform: skewX(45deg) translateX(-20%);
+}
+
+.notification-triangle-container {
+  position: absolute;
+  width: 12%;
+  height: 28%;
+  bottom: 0%;
+  left: 12%;
+  overflow: hidden;
+  transform: scaleY(-1) translateY(-100%);
+}
+
+.notification-triangle {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: 0%;
+  left: -40%;
+  background-color: #f15213;
+  transform: skewX(45deg) translateX(-20%);
+}
+
+.triangle-container {
+  position: absolute;
+  width: 14%;
+  height: 20%;
+  bottom: 1px;
+  right: 20%;
+  overflow: hidden;
+  transform: scaleY(-1) translateY(-100%);
+  z-index: 1;
+}
+
+.triangle {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: 0%;
+  left: -40%;
+  background-color: rgb(247, 247, 247);
+  transform: skewX(45deg) translateX(-20%);
+}
+
+.notification-text {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+}
+
+.user-label {
+  font-size: 15px;
+}
+
+.user-label h4 {
+  color: rgb(83, 83, 83);
+  font-weight: 100;
+}
+
+.password-label {
+  font-size: 15px;
+}
+
+.password-label h4 {
+  color: rgb(83, 83, 83);
+  font-weight: 100;
+}
+
+.text-top {
+  color: rgb(51, 50, 54);
+  font-size: 20px;
+}
+
+.text-bottom {
+  color: rgb(51, 50, 54);
+  font-size: 15px;
+}
+
+@media screen and (max-width: 750px) {
+  .qr-container {
+    visibility: hidden;
+  }
+  .at-thu {
+    visibility: hidden;
+  }
+  .background-box {
+    left: 0;
+    width: 100%;
+  }
+  .background-box .front-box {
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 210%;
+  }
+  .triangle-container {
+    visibility: hidden;
+  }
+  .notification-triangle-container {
+    visibility: hidden;
+  }
+}
