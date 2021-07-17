@@ -1,11 +1,17 @@
 import sqlite3
 
 def _con():
+    """
+    Connect to database
+    """
     con = sqlite3.connect("users.db")
     cur = con.cursor()
     return con, cur
 
 def init():
+    """
+    Initialize database
+    """
     con,cur = _con()
     cur.execute('''CREATE TABLE users
                (id text primary key, password text, usage real)''')
@@ -13,35 +19,24 @@ def init():
     con.close()
 
 def remove_all():
+    """
+    Remove all rows
+    """
     con,cur = _con()
     cur.execute("DELETE FROM users")
     con.commit()
     con.close()
 
-def check(u_id, password):
-    con,cur = _con()
-    cur.execute("select * from users where id=:u_id, password=:pass", {"u_id": u_id, "pass": password})
-    return len(cur.fetchall())>0
-
-def check_and_append(u_id, password):
-    con,cur = _con()
-    cur.execute("select * from users where id=:u_id", {"u_id": u_id})
-    user_list = cur.fetchall()
-    if (len(user_list) == 0):
-        print("user doesnt exist, adding")
-        cur.execute("insert into users values (?, ?, ?)", (u_id, password, 0))
-        con.commit()
-        return 0
-    else:
-        if (user_list[1] == password):
-            return user_list[0][-1]
-        return None
-
-def check_and_add(u_id, password, add:float):
+def check_and_send(u_id, password, add:float = 0):
+    """
+    If username is in db and password correct, return username and usage.
+    If user isnt in db, create new row.
+    If password is incorrect, return dict with None.
+    """
     con, cur = _con()
     cur.execute("select * from users where id=:u_id", {"u_id": u_id})
     user_list = cur.fetchall()
-    if (u_id == ""):
+    if (u_id == "" or u_id == None or password == None):
         return {'username':None,'usage':None}
     if (len(user_list) == 0):
         print("user doesnt exist, adding")
@@ -60,7 +55,27 @@ def check_and_add(u_id, password, add:float):
             print("incorrect password")
             return {'username':None,'usage':None}
 
+def add_usage(u_id, add:float):
+    """
+    Add usage to userid
+    """
+    con, cur = _con()
+    cur.execute("select * from users where id=:u_id", {"u_id": u_id})
+    user_list = cur.fetchall()
+    if (u_id == "" or u_id == None or len(user_list) == 0):
+        return {'username':None,'usage':None}
+    else:
+        user = user_list[0]
+        usage = user[-1]
+        usage += add
+        cur.execute("UPDATE users SET usage=? WHERE id=?;", (usage, u_id))
+        con.commit()
+        return {'username':u_id,'usage':"{:.2f}".format(usage)}
+
 def print_all():
+    """
+    Prints all entries in users table
+    """
     con,cur = _con()
     cur.execute("select * from users")
     print(cur.fetchall())

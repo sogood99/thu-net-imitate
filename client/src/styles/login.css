@@ -5,6 +5,12 @@
   font-family: serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+/* Container */
+
 .container {
   position: absolute;
   top: 0;
@@ -12,21 +18,22 @@
   width: 100%;
   height: 100%;
   background-color: #e6e6e6;
+  overflow: hidden;
 }
 
-a {
-  text-decoration: none;
-}
+/* Wifi logo on top left */
 
 .wifi {
   position: absolute;
-  top: 0;
+  top: 2%;
   left: 15%;
 }
 
+/* Thu text right of logo */
+
 .thu-text-container {
   position: absolute;
-  top: 0;
+  top: 2%;
   left: 20%;
 }
 
@@ -46,9 +53,11 @@ a {
   color: rgb(105, 105, 105);
 }
 
+/* Qr Code and caption */
+
 .qr-container {
   position: absolute;
-  top: 0;
+  top: 2%;
   left: 50%;
 }
 
@@ -57,11 +66,15 @@ a {
   font-size: 12px;
 }
 
+/* At Thu img */
+
 .at-thu {
   position: absolute;
   top: 2%;
   left: 65%;
 }
+
+/* Background box */
 
 .background-box {
   position: absolute;
@@ -105,48 +118,10 @@ a {
   background-color: #e6562e;
 }
 
-.background-box .front-box {
+.notification-text {
   position: absolute;
-  top: 20%;
-  left: 45%;
-  width: 60%;
-  height: 210%;
-  background-color: rgb(247, 247, 247);
-  box-shadow: 0 0 2px rgb(105, 105, 105);
-}
-
-.background-box .front-box .grid {
-  position: absolute;
-  display: grid;
-  grid-template-columns: 1fr 4.5fr;
-  grid-row-gap: 20%;
+  left: 5%;
   top: 10%;
-  left: 7%;
-  width: 84%;
-  height: 35%;
-}
-
-.background-box .front-box .grid .connect {
-  position: absolute;
-  top: 120%;
-  width: 100%;
-  height: 42%;
-  background-color: rgb(146, 212, 46);
-  border: 1px solid;
-  border-color: grey;
-}
-
-.background-box .front-box .grid .connect:hover {
-  background-color: rgb(137, 196, 50);
-  border-color: grey;
-}
-
-.background-box .grid .user-input {
-  font-size: 20px;
-}
-
-.background-box .grid .pass-input {
-  font-size: 20px;
 }
 
 .fold-notification-triangle-container {
@@ -189,6 +164,80 @@ a {
   transform: skewX(45deg) translateX(-20%);
 }
 
+.background-box .front-box {
+  position: absolute;
+  top: 20%;
+  left: 45%;
+  width: 60%;
+  height: 210%;
+  background-color: rgb(247, 247, 247);
+  box-shadow: 0 0 2px rgb(105, 105, 105);
+}
+
+.background-box .front-box .grid {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 4.5fr;
+  grid-row-gap: 20%;
+  top: 10%;
+  left: 7%;
+  width: 84%;
+  height: 35%;
+}
+
+.background-box .front-box .grid .connect {
+  position: absolute;
+  top: 120%;
+  width: 100%;
+  height: 45%;
+  background-color: rgb(146, 212, 46);
+  border: 1px solid;
+  border-color: grey;
+}
+
+.background-box .front-box .grid .connect:hover {
+  background-color: rgb(137, 196, 50);
+  border-color: grey;
+}
+
+.user-label {
+  font-size: 15px;
+}
+
+.user-label h4 {
+  font-size: 12px;
+  color: rgb(83, 83, 83);
+  font-weight: 100;
+}
+
+.password-label {
+  font-size: 15px;
+}
+
+.password-label h4 {
+  font-size: 12px;
+  color: rgb(83, 83, 83);
+  font-weight: 100;
+}
+
+.text-top {
+  color: rgb(51, 50, 54);
+  font-size: 20px;
+}
+
+.text-bottom {
+  color: rgb(51, 50, 54);
+  font-size: 12px;
+}
+
+.background-box .grid .user-input {
+  font-size: 20px;
+}
+
+.background-box .grid .pass-input {
+  font-size: 20px;
+}
+
 .triangle-container {
   position: absolute;
   width: 14%;
@@ -210,61 +259,51 @@ a {
   transform: skewX(45deg) translateX(-20%);
 }
 
-.notification-text {
-  position: absolute;
-  left: 5%;
-  top: 10%;
-}
+/* For mobile users */
 
-.user-label {
-  font-size: 15px;
-}
+@media screen and (max-width: 900px) {
+  .wifi {
+    position: absolute;
+    top: 2%;
+    left: 0%;
+  }
 
-.user-label h4 {
-  color: rgb(83, 83, 83);
-  font-weight: 100;
-}
+  .thu-text-container {
+    position: absolute;
+    top: 2%;
+    left: 10%;
+  }
 
-.password-label {
-  font-size: 15px;
-}
-
-.password-label h4 {
-  color: rgb(83, 83, 83);
-  font-weight: 100;
-}
-
-.text-top {
-  color: rgb(51, 50, 54);
-  font-size: 20px;
-}
-
-.text-bottom {
-  color: rgb(51, 50, 54);
-  font-size: 15px;
-}
-
-@media screen and (max-width: 750px) {
   .qr-container {
     visibility: hidden;
   }
+
   .at-thu {
     visibility: hidden;
   }
+
   .background-box {
     left: 0;
     width: 100%;
   }
+
   .background-box .front-box {
     top: 0%;
     left: 0%;
     width: 100%;
     height: 210%;
   }
+
   .triangle-container {
     visibility: hidden;
   }
+
   .notification-triangle-container {
     visibility: hidden;
+  }
+
+  .background-box .front-box .grid {
+    left: 2%;
+    width: 96%;
   }
 }

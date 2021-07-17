@@ -115,20 +115,30 @@ export default {
   name: "Success",
   data() {
     return {
+      // User is username, perc is usage/125 * 100
       user: "",
       usage: "",
       perc: "",
     };
   },
   created() {
+    // Run on load, load the username and usage from localstorage
     this.user = localStorage.user;
     this.usage = localStorage.usage;
     this.perc = (Math.min(this.usage, 125) / 1.25).toString() + "%";
-    console.log(this.perc);
   },
   methods: {
     logout() {
+      // Called by logout button, sends username to backend to add random value, then routes to login
       window.alert("连接已断开");
+      fetch("http://localhost:5000/logout", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: this.user }),
+      });
       localStorage.user = "";
       localStorage.time_sec = 0;
       this.$router.push({ name: "Login" });
