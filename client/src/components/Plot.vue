@@ -20,7 +20,16 @@ export default {
         xAxis: {
           type: "category",
           data: this.time_axis.map(function(d) {
-            return d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+            return (
+              (d.getHours() < 10 ? "0" : "") +
+              d.getHours() +
+              ":" +
+              (d.getMinutes() < 10 ? "0" : "") +
+              d.getMinutes() +
+              ":" +
+              (d.getSeconds() < 10 ? "0" : "") +
+              d.getSeconds()
+            );
           }),
         },
         yAxis: {
@@ -37,9 +46,9 @@ export default {
           },
         ],
         tooltip: {
-          trigger: "item",
+          trigger: "axis",
           show: true,
-          formatter: "{c}",
+          formatter: "{b}\t{c}",
         },
       };
       myChart.setOption(option);
