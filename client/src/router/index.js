@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Login from "../components/Login.vue";
 import Success from "../components/Success.vue";
-import Plot from "../components/Plot.vue";
 
 const routes = [
   {
@@ -13,12 +12,6 @@ const routes = [
     path: "/success",
     name: "Success",
     component: Success,
-    props: true,
-  },
-  {
-    path: "/stats",
-    name: "Plot",
-    component: Plot,
     props: true,
   },
 ];
